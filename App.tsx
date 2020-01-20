@@ -18,14 +18,17 @@ const rooms = [
   {
     key: 'livingRoom',
     name: 'Living Room',
+    backgroundColor: colorPalette.light,
   },
   {
     key: 'bedroom',
     name: 'Bedroom',
+    backgroundColor: colorPalette.light,
   },
   {
     key: 'kitchen',
     name: 'Kitchen',
+    backgroundColor: colorPalette.light,
   },
 ];
 
@@ -43,14 +46,14 @@ const App = () => {
             key={item.key}
             style={[
               styles.scrollableMenu,
-              styles[item.key],
+              {backgroundColor: item.backgroundColor},
               index === 0 ? {marginLeft: 24} : undefined,
             ]}>
-            <Text style={styles.scrollMenuTitle}>{item.name}</Text>
+            <Text style={[styles.scrollMenuTitle]}>{item.name}</Text>
           </View>
         ))}
-        <View style={[styles.scrollableMenu, styles.addMore]}>
-          <Text style={styles.scrollMenuTitle}>Add More</Text>
+        <View style={[styles.scrollableMenu, styles.addMore]} {...shadow}>
+          <Text style={[styles.addMoreScrollMenuTitle]}>Add More</Text>
         </View>
       </ScrollView>
       <View style={styles.menuBar}>
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
   app: {
     flexDirection: 'column',
     flex: 1,
-    backgroundColor: colorPalette.mainBg,
+    backgroundColor: colorPalette.white,
   },
   graphContainer: {
     marginHorizontal: 24,
@@ -82,22 +85,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  scrollMenu: {
-    maxHeight: 260,
-    marginVertical: 24,
-  },
+  scrollMenu: {},
   scrollableMenu: {
-    height: 240,
+    height: 200,
     width: 200,
     borderRadius: 24,
     marginLeft: 18,
     justifyContent: 'flex-end',
-    padding: 12,
+    paddingVertical: 18,
+    paddingHorizontal: 24,
   },
   scrollMenuTitle: {
-    color: 'white',
-    fontFamily: 'Raleway-Bold',
-    fontSize: 24,
+    color: colorPalette.white,
+    fontSize: 18,
+    ...fontStyles.titleBold,
   },
   livingRoom: {
     backgroundColor: colorPalette.lighter,
@@ -109,8 +110,13 @@ const styles = StyleSheet.create({
     backgroundColor: colorPalette.main,
   },
   addMore: {
-    backgroundColor: colorPalette.darker,
+    backgroundColor: colorPalette.white,
     marginRight: 24,
+  },
+  addMoreScrollMenuTitle: {
+    color: colorPalette.black,
+    fontSize: 18,
+    ...fontStyles.titleBold,
   },
   menuBar: {
     backgroundColor: colorPalette.main,

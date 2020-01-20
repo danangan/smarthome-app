@@ -39,17 +39,17 @@ export default function Graph() {
 const styles = StyleSheet.create({
   graphContainer: {
     marginHorizontal: 24,
-    backgroundColor: colorPalette.black,
+    backgroundColor: colorPalette.white,
     height: 200,
     borderRadius: 24,
     flexDirection: 'column',
     justifyContent: 'center',
-    marginBottom: 36,
+    marginBottom: 48,
   },
   title: {
     marginTop: 12,
     marginLeft: 18,
     fontSize: 14,
-    color: colorPalette.white,
+    color: colorPalette.black,
   },
 });
