@@ -10,28 +10,9 @@
 
 import React from 'react';
 import {SafeAreaView, StyleSheet, View, Text, ScrollView} from 'react-native';
-
-const shadow = {
-  shadowColor: '#000',
-  shadowOffset: {
-    width: 0,
-    height: 2,
-  },
-  shadowOpacity: 0.25,
-  shadowRadius: 3.84,
-};
-
-const colorPalette = {
-  light: '#45BF55',
-  lighter: '#97ED8A',
-  main: '#168039',
-  dark: '#044D29',
-  darker: '#00261C',
-  grey: '#bbb',
-  lightGrey: '#efefef',
-  black: '#222',
-  white: '#fff',
-};
+import Graph from './src/components/Graph';
+import Header from './src/components/Header';
+import {colorPalette, shadow, fontStyles} from './src/styles';
 
 const rooms = [
   {
@@ -51,20 +32,10 @@ const rooms = [
 const App = () => {
   return (
     <SafeAreaView style={styles.app}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>
-          Hi, <Text style={fontStyles.titleBold}>Danang!</Text>
-        </Text>
-      </View>
-      <View style={styles.overview}>
-        <Text style={[styles.energyConsumption, fontStyles.body]}>
-          Your energy consumption today
-        </Text>
-        <Text style={styles.energyConsumptionSum}>120 kwH</Text>
-      </View>
-      <View style={styles.graphContainer} {...shadow}>
-        <Text>Graph goes here</Text>
-      </View>
+      <Header />
+
+      <Graph />
+
       <ScrollView horizontal style={styles.scrollMenu}>
         {rooms.map((item, index) => (
           <View
@@ -97,58 +68,11 @@ const App = () => {
   );
 };
 
-const fontStyles = StyleSheet.create({
-  title: {
-    fontFamily: 'Raleway-Light',
-  },
-  titleBold: {
-    fontFamily: 'Raleway-Regular',
-  },
-  body: {
-    fontFamily: 'OpenSans-Light',
-  },
-});
-
 const styles = StyleSheet.create({
   app: {
     flexDirection: 'column',
     flex: 1,
-    backgroundColor: colorPalette.white,
-  },
-  avatar: {
-    height: 30,
-    width: 30,
-    borderRadius: 24,
-  },
-  headerText: {
-    color: colorPalette.light,
-    fontSize: 30,
-    fontFamily: 'Raleway-Light',
-  },
-  header: {
-    paddingHorizontal: 24,
-    marginTop: 24,
-    marginBottom: 12,
-  },
-  overview: {
-    backgroundColor: 'white',
-    marginHorizontal: 24,
-    marginBottom: 36,
-    borderRadius: 24,
-  },
-  overviewTitle: {
-    fontFamily: 'Raleway-SemiBold',
-    marginBottom: 6,
-    color: colorPalette.black,
-  },
-  energyConsumption: {
-    fontFamily: 'OpenSans-Regular',
-    color: colorPalette.black,
-    fontSize: 20,
-  },
-  energyConsumptionSum: {
-    fontSize: 24,
-    fontFamily: 'OpenSans-Bold',
+    backgroundColor: colorPalette.mainBg,
   },
   graphContainer: {
     marginHorizontal: 24,
