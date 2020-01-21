@@ -7,6 +7,7 @@ export const colorPalette = {
   accent: '#FFE119',
   grey: '#bbb',
   lightGrey: '#efefef',
+  darkGrey: '#676767',
   black: '#222',
   white: '#fff',
   mainBg: '#FDFFF1',

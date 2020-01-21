@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {colorPalette, fontStyles, shadow} from '../../styles';
+import Lamp from '../../../assets/icons/lamp.svg';
 
 export default function Header() {
   return (
@@ -17,13 +18,18 @@ export default function Header() {
         </Text>
       </View>
       <View style={styles.overview}>
-        <Text style={[styles.energyConsumption, fontStyles.body]}>
-          Energy consumed today:{' '}
-          <Text style={fontStyles.bodyBold}>120 kwH</Text>
-        </Text>
-        <Text style={[fontStyles.body, styles.message]}>
-          Keep up the good work!
-        </Text>
+        <View style={styles.energyConsumptionSummary}>
+          <Lamp height={50} width={40} style={{marginRight: 10}} />
+          <View>
+            <Text style={[styles.energyConsumption, fontStyles.body]}>
+              Energy consumed today:{' '}
+              <Text style={fontStyles.bodyBold}>120 kwH</Text>
+            </Text>
+            <Text style={[fontStyles.body, styles.message]}>
+              Keep up the good work!
+            </Text>
+          </View>
+        </View>
       </View>
     </>
   );
@@ -38,10 +44,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   avatar: {
-    height: 40,
-    width: 40,
+    height: 50,
+    width: 50,
     marginRight: 12,
-    borderRadius: 24,
+    borderRadius: 25,
   },
   headerText: {
     color: colorPalette.black,
@@ -63,5 +69,8 @@ const styles = StyleSheet.create({
   },
   message: {
     fontSize: 14,
+  },
+  energyConsumptionSummary: {
+    flexDirection: 'row',
   },
 });

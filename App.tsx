@@ -13,22 +13,40 @@ import {SafeAreaView, StyleSheet, View, Text, ScrollView} from 'react-native';
 import Graph from './src/components/Graph';
 import Header from './src/components/Header';
 import {colorPalette, shadow, fontStyles} from './src/styles';
+import Kitchen from './assets/icons/kitchen.svg';
+import Sofa from './assets/icons/sofa.svg';
+import Bed from './assets/icons/bed.svg';
+import Shower from './assets/icons/shower.svg';
+
+const iconDimension = {
+  width: 120,
+  height: 120,
+};
 
 const rooms = [
   {
     key: 'livingRoom',
     name: 'Living Room',
     backgroundColor: colorPalette.light,
+    icon: <Sofa {...iconDimension} />,
   },
   {
     key: 'bedroom',
     name: 'Bedroom',
     backgroundColor: colorPalette.light,
+    icon: <Bed {...iconDimension} />,
+  },
+  {
+    key: 'bathroom',
+    name: 'Bathroom',
+    backgroundColor: colorPalette.light,
+    icon: <Shower {...iconDimension} />,
   },
   {
     key: 'kitchen',
     name: 'Kitchen',
     backgroundColor: colorPalette.light,
+    icon: <Kitchen {...iconDimension} />,
   },
 ];
 
@@ -49,12 +67,10 @@ const App = () => {
               {backgroundColor: item.backgroundColor},
               index === 0 ? {marginLeft: 24} : undefined,
             ]}>
+            {item.icon}
             <Text style={[styles.scrollMenuTitle]}>{item.name}</Text>
           </View>
         ))}
-        <View style={[styles.scrollableMenu, styles.addMore]} {...shadow}>
-          <Text style={[styles.addMoreScrollMenuTitle]}>Add More</Text>
-        </View>
       </ScrollView>
       <View style={styles.menuBar}>
         <View>
@@ -90,14 +106,16 @@ const styles = StyleSheet.create({
     height: 200,
     width: 200,
     borderRadius: 24,
-    marginLeft: 18,
-    justifyContent: 'flex-end',
+    marginRight: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingVertical: 18,
     paddingHorizontal: 24,
   },
   scrollMenuTitle: {
     color: colorPalette.white,
     fontSize: 18,
+    marginTop: 12,
     ...fontStyles.titleBold,
   },
   livingRoom: {
@@ -108,15 +126,6 @@ const styles = StyleSheet.create({
   },
   kitchen: {
     backgroundColor: colorPalette.main,
-  },
-  addMore: {
-    backgroundColor: colorPalette.white,
-    marginRight: 24,
-  },
-  addMoreScrollMenuTitle: {
-    color: colorPalette.black,
-    fontSize: 18,
-    ...fontStyles.titleBold,
   },
   menuBar: {
     backgroundColor: colorPalette.main,
