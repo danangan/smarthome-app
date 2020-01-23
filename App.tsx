@@ -27,63 +27,65 @@ const rooms = [
   {
     key: 'livingRoom',
     name: 'Living Room',
-    backgroundColor: colorPalette.light,
+    backgroundColor: colorPalette.main,
     icon: <Sofa {...iconDimension} />,
   },
   {
     key: 'bedroom',
     name: 'Bedroom',
-    backgroundColor: colorPalette.light,
+    backgroundColor: colorPalette.main,
     icon: <Bed {...iconDimension} />,
   },
   {
     key: 'bathroom',
     name: 'Bathroom',
-    backgroundColor: colorPalette.light,
+    backgroundColor: colorPalette.main,
     icon: <Shower {...iconDimension} />,
   },
   {
     key: 'kitchen',
     name: 'Kitchen',
-    backgroundColor: colorPalette.light,
+    backgroundColor: colorPalette.main,
     icon: <Kitchen {...iconDimension} />,
   },
 ];
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.app}>
-      <Header />
+    <>
+      <SafeAreaView style={styles.app}>
+        <Header />
 
-      <Graph />
+        <Graph />
 
-      <ScrollView horizontal style={styles.scrollMenu}>
-        {rooms.map((item, index) => (
-          <View
-            {...shadow}
-            key={item.key}
-            style={[
-              styles.scrollableMenu,
-              {backgroundColor: item.backgroundColor},
-              index === 0 ? {marginLeft: 24} : undefined,
-            ]}>
-            {item.icon}
-            <Text style={[styles.scrollMenuTitle]}>{item.name}</Text>
+        <ScrollView horizontal>
+          {rooms.map((item, index) => (
+            <View
+              {...shadow(colorPalette.main)[11]}
+              key={item.key}
+              style={[
+                styles.scrollableMenu,
+                {backgroundColor: item.backgroundColor},
+                index === 0 ? {marginLeft: 24} : undefined,
+              ]}>
+              {item.icon}
+              <Text style={[styles.scrollMenuTitle]}>{item.name}</Text>
+            </View>
+          ))}
+        </ScrollView>
+        <View style={styles.menuBar}>
+          <View>
+            <Text>Analytics</Text>
           </View>
-        ))}
-      </ScrollView>
-      <View style={styles.menuBar}>
-        <View>
-          <Text>Analytics</Text>
+          <View>
+            <Text>Profile</Text>
+          </View>
+          <View>
+            <Text>Setup a new device</Text>
+          </View>
         </View>
-        <View>
-          <Text>Profile</Text>
-        </View>
-        <View>
-          <Text>Setup a new device</Text>
-        </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </>
   );
 };
 
@@ -93,15 +95,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colorPalette.white,
   },
-  graphContainer: {
-    marginHorizontal: 24,
-    backgroundColor: colorPalette.light,
-    height: 240,
-    borderRadius: 24,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  scrollMenu: {},
   scrollableMenu: {
     height: 200,
     width: 200,
@@ -117,15 +110,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginTop: 12,
     ...fontStyles.titleBold,
-  },
-  livingRoom: {
-    backgroundColor: colorPalette.lighter,
-  },
-  bedroom: {
-    backgroundColor: colorPalette.light,
-  },
-  kitchen: {
-    backgroundColor: colorPalette.main,
   },
   menuBar: {
     backgroundColor: colorPalette.main,
