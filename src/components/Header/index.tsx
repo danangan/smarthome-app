@@ -16,7 +16,9 @@ interface IInfoBox {
 }
 
 const InfoBox: React.FC<IInfoBox> = ({style, title, description}) => (
-  <View style={[styles.infoBox, style || {}]} {...shadow(colorPalette.main)[5]}>
+  <View
+    style={[styles.infoBox, style || {}]}
+    {...shadow(colorPalette.black)[5]}>
     <Text style={[styles.infoBoxTitle, fontStyles.bodyBold]}>{title}</Text>
     <Text style={[styles.infoBoxDesc, fontStyles.body]}>{description}</Text>
   </View>
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   infoBox: {
-    backgroundColor: colorPalette.white,
+    backgroundColor: colorPalette.mainBg,
     width: 150,
     padding: 12,
     borderRadius: 6,

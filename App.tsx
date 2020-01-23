@@ -18,6 +18,12 @@ import Sofa from './assets/icons/sofa.svg';
 import Bed from './assets/icons/bed.svg';
 import Shower from './assets/icons/shower.svg';
 
+import Profile from './assets/icons/profile.svg';
+import Setting from './assets/icons/setting.svg';
+import PieChart from './assets/icons/pie-chart.svg';
+import Plus from './assets/icons/plus.svg';
+import Home from './assets/icons/home.svg';
+
 const iconDimension = {
   width: 120,
   height: 120,
@@ -58,7 +64,7 @@ const App = () => {
 
         <Graph />
 
-        <ScrollView horizontal>
+        <ScrollView horizontal style={styles.scrollMenuContainer}>
           {rooms.map((item, index) => (
             <View
               {...shadow(colorPalette.main)[11]}
@@ -76,14 +82,21 @@ const App = () => {
           ))}
         </ScrollView>
         <View style={styles.menuBar}>
-          <View>
-            <Text>Analytics</Text>
+          <View style={styles.menu}>
+            <Home height={25} width={25} />
+            <View style={styles.menuUnderline} />
           </View>
-          <View>
-            <Text>Profile</Text>
+          <View style={styles.menu}>
+            <PieChart height={25} width={25} />
           </View>
-          <View>
-            <Text>Setup a new device</Text>
+          <View style={styles.menu}>
+            <Profile height={25} width={25} />
+          </View>
+          <View style={styles.menu}>
+            <Setting height={25} width={25} />
+          </View>
+          <View style={styles.menu}>
+            <Plus height={25} width={25} />
           </View>
         </View>
       </SafeAreaView>
@@ -95,7 +108,10 @@ const styles = StyleSheet.create({
   app: {
     flexDirection: 'column',
     flex: 1,
-    backgroundColor: colorPalette.white,
+    backgroundColor: colorPalette.mainBg,
+  },
+  scrollMenuContainer: {
+    height: 200,
   },
   scrollableMenu: {
     height: 200,
@@ -114,10 +130,31 @@ const styles = StyleSheet.create({
   },
   menuBar: {
     backgroundColor: colorPalette.main,
-    padding: 24,
+    paddingHorizontal: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    height: 110,
+    marginBottom: -35,
+    alignItems: 'flex-start',
+    paddingTop: 24,
+  },
+  menu: {
+    display: 'flex',
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  menuText: {
+    color: colorPalette.white,
+    marginTop: 6,
+    ...fontStyles.titleBold,
+  },
+  menuUnderline: {
+    height: 2,
+    borderRadius: 2,
+    backgroundColor: colorPalette.white,
+    marginTop: 10,
+    width: '60%',
   },
 });
 

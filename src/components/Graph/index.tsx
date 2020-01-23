@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     flexDirection: 'column',
     justifyContent: 'center',
-    marginBottom: 48,
+    marginBottom: 62,
   },
   title: {
     marginTop: 12,

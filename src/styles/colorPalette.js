@@ -4,4 +4,5 @@ export const colorPalette = {
   gray: '#676767',
   black: '#222',
   white: '#fff',
+  mainBg: '#ededed',
 };
