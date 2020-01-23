@@ -8,7 +8,6 @@ import {
 import {LineChart} from 'react-native-svg-charts';
 import * as shape from 'd3-shape';
 import {shadow, colorPalette, fontStyles} from '../../styles';
-import LinearGradient from 'react-native-linear-gradient';
 
 export default function Graph() {
   const data = [120, 110, 90, 95, 100, 80, 120, 50, 60, 70, 150, 120];
@@ -21,7 +20,7 @@ export default function Graph() {
         y1={'0%'}
         x2={'0%'}
         y2={'100%'}>
-        <Stop offset={'100%'} stopColor={'#d81b60'} />
+        <Stop offset={'100%'} stopColor={colorPalette.main} />
         <Stop offset={'0%'} stopColor={colorPalette.accent} />
       </LinearGradientSVG>
     </Defs>
@@ -29,18 +28,18 @@ export default function Graph() {
 
   return (
     <>
-      <View {...shadow('#d81b60')[11]} style={styles.tabsContainer}>
+      <View {...shadow(colorPalette.main)[11]} style={styles.tabsContainer}>
         <View style={[styles.tab, styles.activeTab]}>
           <Text style={[styles.tabText, styles.activeTabText]}>Last week</Text>
         </View>
         <View style={styles.tab}>
-          <Text style={styles.tabText}>Last 2 week</Text>
+          <Text style={styles.tabText}>Last 2 weeks</Text>
         </View>
         <View style={[styles.tab]}>
           <Text style={styles.tabText}>Last month</Text>
         </View>
       </View>
-      <View {...shadow('#d81b60')[11]} style={styles.graphContainer}>
+      <View {...shadow(colorPalette.main)[11]} style={styles.graphContainer}>
         <LineChart
           style={{height: 160}}
           data={data}
@@ -75,7 +74,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     flexDirection: 'row',
     borderRadius: 6,
-    borderColor: '#d81b60',
+    borderColor: colorPalette.main,
     borderWidth: 3,
   },
   tab: {
@@ -90,11 +89,11 @@ const styles = StyleSheet.create({
   tabText: {
     textAlign: 'center',
     fontSize: 12,
-    color: '#d81b60',
+    color: colorPalette.main,
     ...fontStyles.bodyBold,
   },
   activeTab: {
-    backgroundColor: '#d81b60',
+    backgroundColor: colorPalette.main,
   },
   activeTabText: {
     color: colorPalette.white,

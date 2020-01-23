@@ -18,7 +18,6 @@ interface IInfoBox {
 const InfoBox: React.FC<IInfoBox> = ({style, title, description}) => (
   <View style={[styles.infoBox, style || {}]} {...shadow(colorPalette.main)[5]}>
     <Text style={[styles.infoBoxTitle, fontStyles.bodyBold]}>{title}</Text>
-
     <Text style={[styles.infoBoxDesc, fontStyles.body]}>{description}</Text>
   </View>
 );
@@ -44,9 +43,11 @@ export default function Header() {
             source={require('../../../assets/images/avatar.jpg')}
           />
         </View>
-        <Text style={[styles.headerText, fontStyles.titleRegular]}>
-          Hi, <Text style={fontStyles.titleExtraBold}>Danang!</Text>
-        </Text>
+        <View {...shadow(colorPalette.main)[2]}>
+          <Text style={[styles.headerText, fontStyles.titleRegular]}>
+            Hi, <Text style={fontStyles.titleExtraBold}>Danang!</Text>
+          </Text>
+        </View>
       </View>
       <View style={styles.overview}>
         <View style={styles.energyConsumptionSummary}>
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerContainer: {
-    marginBottom: 24,
+    marginBottom: 36,
   },
   avatar: {
     height: 50,
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
   infoBoxTitle: {
     color: colorPalette.main,
     fontSize: 16,
+    marginBottom: 3,
   },
   infoBoxDesc: {
     color: colorPalette.gray,

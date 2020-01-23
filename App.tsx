@@ -68,8 +68,10 @@ const App = () => {
                 {backgroundColor: item.backgroundColor},
                 index === 0 ? {marginLeft: 24} : undefined,
               ]}>
-              {item.icon}
-              <Text style={[styles.scrollMenuTitle]}>{item.name}</Text>
+              <View {...shadow(colorPalette.white)[5]}>{item.icon}</View>
+              <View {...shadow(colorPalette.white)[5]}>
+                <Text style={[styles.scrollMenuTitle]}>{item.name}</Text>
+              </View>
             </View>
           ))}
         </ScrollView>
@@ -97,19 +99,18 @@ const styles = StyleSheet.create({
   },
   scrollableMenu: {
     height: 200,
-    width: 200,
     borderRadius: 24,
     marginRight: 24,
     justifyContent: 'center',
-    alignItems: 'center',
     paddingVertical: 18,
-    paddingHorizontal: 24,
+    paddingHorizontal: 36,
   },
   scrollMenuTitle: {
     color: colorPalette.white,
     fontSize: 18,
     marginTop: 12,
     ...fontStyles.titleBold,
+    textAlign: 'left',
   },
   menuBar: {
     backgroundColor: colorPalette.main,
